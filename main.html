@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SPARKY</title>
+<link rel="icon" type="image/png" href="sitelogo.png">
+<link rel="apple-touch-icon" href="sitelogo.png">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(circle at center, #020617, #000000);
+    color: #00f7ff;
+    overflow-x: hidden;
+    padding-top: 82px;
+    scroll-behavior: smooth;
+}
+
+/* HEADER */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 30px;
+
+    background: rgba(2, 6, 23, 0.9);
+    backdrop-filter: blur(10px);
+
+    border-bottom: 1px solid #00f7ff33;
+    z-index: 1000;
+}
+
+.menu-toggle {
+    display: none;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 42px;
+    min-width: 112px;
+    border: 1px solid #00f7ff;
+    border-radius: 999px;
+    background: rgba(0, 0, 0, 0.2);
+    color: #00f7ff;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 0 14px;
+    font: inherit;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0 0 12px rgba(0, 247, 255, 0.12);
+}
+
+/* NAV */
+nav {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р вЂ™Р’ВР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р РЋРЎвЂєР В Р вЂ Р В РІР‚С™Р вЂ™Р’ВР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’ВµР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В»Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В¦Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р вЂ Р Р†Р вЂљРЎвЂєР Р†Р вЂљРІР‚СљР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В РІР‚В Р В Р вЂ Р В РІР‚С™Р РЋРІР‚С”Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎС™ Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В РІР‚в„ўР вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’ВµР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В¦Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р Р†РІР‚С›РЎС›Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р РЋРІвЂћСћ */
+
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #00f7ff;
+    position: relative;
+
+    padding: 6px 14px;
+    z-index: 1;
+
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+nav a:hover {
+    opacity: 0.9;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    left: 14px;
+    right: 14px;
+    bottom: -4px;
+    height: 2px;
+    border-radius: 999px;
+    background: #00f7ff;
+    box-shadow: 0 0 12px rgba(0, 247, 255, 0.85);
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.28s ease, opacity 0.28s ease;
+    opacity: 0;
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
+    opacity: 1;
+}
+
+nav a.active {
+    background: transparent;
+    box-shadow: none;
+    color: #00f7ff;
+}
+
+nav a.active::after {
+    background: #00f7ff;
+}
+
+/* LOGIN ICON */
+.login-icon {
+    position: absolute;
+    right: 66px; /* Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р Р†Р вЂљРЎвЂќР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р вЂ™Р’ВР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎС™Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРЎС™ Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРЎС™Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎСљР В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р РЋРІвЂћСћР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В° */
+    
+    border: 1px solid #00f7ff;
+    padding: 6px 14px;
+    font-size: 14px;
+
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.login-icon:hover {
+    background: #00f7ff;
+    color: black;
+}
+
+.login-icon.logged-in {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 2px;
+    min-width: 132px;
+}
+
+.login-primary {
+    font-size: 13px;
+    line-height: 1.1;
+}
+
+.login-secondary {
+    font-size: 10px;
+    line-height: 1;
+    color: #7edee3;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.account-menu {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 66px;
+    min-width: 220px;
+    padding: 12px;
+    border: 1px solid rgba(0, 247, 255, 0.22);
+    border-radius: 14px;
+    background: rgba(2, 6, 23, 0.98);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.48);
+    z-index: 1002;
+    display: none;
+}
+
+.account-menu.open {
+    display: block;
+}
+
+.account-meta {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(0, 247, 255, 0.15);
+}
+
+.account-name {
+    font-size: 14px;
+    color: #00f7ff;
+}
+
+.account-plan {
+    font-size: 11px;
+    color: #8ecad1;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+}
+
+.account-action {
+    width: 100%;
+    margin-top: 8px;
+}
+
+.toast {
+    position: fixed;
+    top: 96px;
+    right: 24px;
+    min-width: 260px;
+    max-width: min(420px, calc(100vw - 32px));
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(0, 247, 255, 0.28);
+    background: rgba(2, 6, 23, 0.94);
+    color: #dffcff;
+    box-shadow: 0 18px 36px rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.22s ease, transform 0.22s ease;
+    z-index: 2000;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.toast.error {
+    border-color: rgba(255, 99, 132, 0.38);
+    color: #ffd8df;
+}
+
+.admin-panel {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.84);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1500;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.admin-panel.open {
+    display: flex;
+}
+
+.admin-card {
+    width: min(760px, 100%);
+    max-height: 80vh;
+    overflow: auto;
+    background: #020617;
+    border: 1px solid rgba(0, 247, 255, 0.26);
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 24px 50px rgba(0, 0, 0, 0.55);
+}
+
+.admin-title {
+    margin: 0 0 16px;
+    color: #00f7ff;
+}
+
+.admin-user {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) 140px 120px;
+    gap: 12px;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0, 247, 255, 0.1);
+}
+
+.admin-user-name {
+    color: #dffcff;
+    word-break: break-word;
+}
+
+.admin-user-subtitle {
+    font-size: 12px;
+    color: #83a0aa;
+    margin-top: 4px;
+}
+
+.admin-select {
+    width: 100%;
+    padding: 10px 12px;
+    background: #06111f;
+    color: #dffcff;
+    border: 1px solid rgba(0, 247, 255, 0.22);
+    border-radius: 10px;
+}
+
+.center-panel {
+    position: relative;
+    margin-top: 18px;
+    text-align: center;
+    animation: fadeIn 1.5s ease;
+}
+
+.center-panel h1 {
+    font-size: 48px;
+    text-shadow: 0 0 20px #00f7ff;
+    margin: 0;
+}
+
+.center-panel p {
+    opacity: 0.7;
+    margin-top: 4px;
+    font-size: 14px;
+}
+
+.key-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.key-box {
+    background: #020617;
+    border: 1px solid #00f7ff;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 20px #00f7ff;
+}
+
+.logo-small {
+    height: 60px;
+    width: 200px;
+    position: relative;
+    z-index: 2;
+    object-fit: contain;
+    display: block;
+}
+
+.logo-big {
+    width: min(72vw, 1000px);
+    max-height: 260px;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+}
+
+#keyText {
+    margin: 15px 0;
+    font-size: 18px;
+    color: #00ff88;
+}
+
+/* ABOUT TEXT (Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р Р†РІР‚С›РЎС›Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎвЂєР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В»Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р’В Р Р†Р вЂљР’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎС™Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎвЂє Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р Р†РІР‚С›РЎС›Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’ВµР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎС™Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р вЂ™Р’В Р В Р Р‹Р Р†Р вЂљРЎС™Р В Р’В Р вЂ™Р’В Р В Р’В Р В РІР‚в„–Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р Р†РІР‚С›РЎС›, Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р Р‹Р РЋРІвЂћСћР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В РІР‚В Р В Р’В Р Р†Р вЂљРЎв„ўР В Р Р‹Р РЋРІР‚С” Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В·Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В°Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р Р†Р вЂљРЎС™Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎвЂєР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р Р†Р вЂљРІвЂћСћР В РІР‚в„ўР вЂ™Р’В»Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎвЂєР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В Р вЂ Р В РІР‚С™Р вЂ™Р’В Р В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎвЂєР В Р’В Р вЂ™Р’В Р В РІР‚в„ўР вЂ™Р’В Р В Р’В Р В Р вЂ№Р В Р вЂ Р В РІР‚С™Р РЋРЎС™) */
+#about p {
+    color: #b8c1c7;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+#about h2 {
+    color: #00f7ff;
+}
+
+#privacy h2 {
+    color: #00f7ff;
+}
+
+#privacy p {
+    color: #b8c1c7;
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+.contact-link {
+    color: #8b949e;
+    text-decoration: none;
+}
+
+.contact-link:hover {
+    color: #b8c1c7;
+    text-decoration: underline;
+}
+    
+/* BUTTON */
+button {
+    margin-top: 20px;
+    background: transparent;
+    border: 1px solid #00f7ff;
+    color: #00f7ff;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00f7ff;
+    color: black;
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+/* PLANS */
+.plans {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.plan {
+    flex: 1;
+    min-width: 200px;
+    border: 1px solid #00f7ff33;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(0, 247, 255, 0.05);
+    text-align: center;
+    transition: 0.4s;
+    position: relative;
+    overflow: hidden;
+}
+
+.plan::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, #00f7ff33, transparent);
+    top: -100%;
+    left: 0;
+    transition: 0.5s;
+}
+
+.plan:hover::before {
+    top: 100%;
+}
+
+.plan:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 20px #00f7ff55;
+}
+
+.plan.active {
+    border: 1px solid #00f7ff;
+    box-shadow: 0 0 15px #00f7ff;
+}
+
+.plan.pro {
+    border: 1px solid #ff00ff55;
+    color: #ff9bff;
+}
+
+.price {
+    font-size: 24px;
+    margin: 10px 0;
+}
+
+.status {
+    color: #00ff88;
+    font-size: 12px;
+}
+
+.plan button {
+    margin-top: 15px;
+    width: 100%;
+}
+
+/* PRIVACY */
+.privacy h3 {
+    margin-top: 20px;
+    color: #00f7ff;
+    text-shadow: 0 0 8px #00f7ff;
+}
+
+.privacy p {
+    opacity: 0.8;
+    line-height: 1.6;
+    border-left: 2px solid #00f7ff33;
+    padding-left: 10px;
+}
+
+/* SECTIONS */
+.section {
+    padding: 100px 40px;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.8s;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.card {
+    border: 1px solid #00f7ff33;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 247, 255, 0.05);
+    backdrop-filter: blur(10px);
+}
+
+/* LOGIN MODAL */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #020617;
+    padding: 30px;
+    border: 1px solid #00f7ff;
+    width: 300px;
+    position: relative;
+    animation: fadeIn 0.5s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    border: 0;
+    background: transparent;
+    color: #00f7ff;
+    font-size: 26px;
+    line-height: 1;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+}
+
+.modal-close:hover {
+    background: transparent;
+    box-shadow: none;
+    color: #ffffff;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 10px;
+    padding: 8px;
+    background: black;
+    border: 1px solid #00f7ff33;
+    color: #00f7ff;
+}
+
+.auth-switch {
+    margin: 14px 0 0;
+    font-size: 12px;
+    color: #b8c1c7;
+    text-align: center;
+}
+
+.auth-switch a {
+    color: #00f7ff;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 14px 0 10px;
+    color: #7f8c99;
+    font-size: 11px;
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: rgba(0, 247, 255, 0.18);
+}
+
+.google-button {
+    width: 100%;
+    margin-top: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.96);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    color: #101828;
+    font-weight: 700;
+    box-shadow: none;
+}
+
+.google-button:hover {
+    background: #ffffff;
+    color: #101828;
+    box-shadow: 0 0 18px rgba(255, 255, 255, 0.18);
+}
+
+.google-mark {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #ffffff;
+    color: #4285f4;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: Arial, sans-serif;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+    from {opacity: 0; transform: translateY(20px);} 
+    to {opacity: 1; transform: translateY(0);} 
+}
+
+@media (max-width: 768px) {
+    body {
+        padding-top: 96px;
+    }
+
+    header {
+        height: auto;
+        min-height: 76px;
+        padding: 10px 14px;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: 10px;
+    }
+
+    .logo-small {
+        width: 112px;
+        height: auto;
+    }
+
+    nav {
+        position: absolute;
+        top: calc(100% + 8px);
+        left: 12px;
+        right: 12px;
+        transform: none;
+        width: auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        padding: 12px;
+        background: rgba(2, 6, 23, 0.98);
+        border: 1px solid #00f7ff33;
+        border-radius: 16px;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease;
+        z-index: 1001;
+    }
+
+    header.menu-open nav {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    nav a {
+        display: block;
+        padding: 10px 12px;
+        font-size: 12px;
+        border-radius: 10px;
+        background: rgba(0, 247, 255, 0.05);
+    }
+
+    nav a::after {
+        left: 12px;
+        right: 12px;
+    }
+
+    .login-icon {
+        position: static;
+        margin-left: auto;
+        margin-right: 0;
+        padding: 8px 12px;
+        font-size: 12px;
+        border-radius: 999px;
+    }
+
+    .menu-toggle {
+        display: inline-flex;
+        z-index: 1002;
+    }
+
+    .center-panel {
+        margin-top: 20px;
+        padding: 0 16px;
+    }
+
+    .logo-big {
+        width: min(84vw, 380px);
+        height: auto;
+    }
+
+    .center-panel h1 {
+        font-size: 30px;
+    }
+
+    .center-panel p {
+        font-size: 13px;
+    }
+
+    .section {
+        padding: 70px 16px;
+    }
+
+    .card {
+        padding: 16px;
+        border-radius: 14px;
+    }
+
+    .card h2,
+    .privacy h3 {
+        font-size: 20px;
+        margin-top: 0;
+    }
+
+    #about p,
+    #privacy p {
+        font-size: 14px;
+        line-height: 1.7;
+    }
+
+    .plans {
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .plan {
+        min-width: 0;
+        padding: 16px;
+    }
+
+    .price {
+        font-size: 22px;
+    }
+
+    button {
+        width: 100%;
+        font-size: 14px;
+        padding: 12px 16px;
+    }
+
+    .modal-content,
+    .key-box {
+        width: calc(100vw - 32px);
+        max-width: 360px;
+        padding: 20px 16px;
+        box-sizing: border-box;
+    }
+
+    input {
+        font-size: 16px;
+        padding: 12px;
+        box-sizing: border-box;
+    }
+
+    .auth-switch {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 420px) {
+    body {
+        padding-top: 90px;
+    }
+
+    header {
+        padding: 10px 12px;
+    }
+
+    .logo-small {
+        width: 96px;
+    }
+
+    nav a {
+        font-size: 11px;
+        padding: 7px 9px;
+    }
+
+    .login-icon {
+        font-size: 11px;
+        padding: 7px 10px;
+    }
+
+    .menu-toggle {
+        min-width: 96px;
+        height: 38px;
+        font-size: 11px;
+        padding: 0 12px;
+    }
+
+    .center-panel h1 {
+        font-size: 26px;
+    }
+
+    .section {
+        padding: 60px 12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <img src="sparkylogo.png" class="logo-small">
+
+    <div>
+        <nav>
+            <a href="#about">ABOUT US</a>
+            <a href="#download">DOWNLOAD</a>
+            <a href="#donate">DONATE</a>
+            <a href="#privacy">PRIVACY POLICY</a>
+            <a href="#contact">CONTACT</a>
+        </nav>
+    </div>
+
+    <div class="login-icon" id="accountButton">LOGIN</div>
+    <div class="account-menu" id="accountMenu">
+        <div class="account-meta">
+            <div class="account-name" id="accountMenuName">Guest</div>
+            <div class="account-plan" id="accountMenuPlan">basic plan</div>
+        </div>
+        <button class="account-action" id="adminPanelOpen" type="button">Admin Panel</button>
+        <button class="account-action" id="logoutButton" type="button">Logout</button>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false">
+        OPEN LIST
+    </button>
+</header>
+
+<div class="center-panel">
+    <img src="sparkylogo.png" class="logo-big">
+    <p>Artificial Intelligence System</p>
+</div>
+
+<div class="section" id="about"><div class="card"><h2>ABOUT US</h2>
+
+<p>This project is a modern voice assistant inspired by the concept of JARVIS from the Marvel Comics universe. It is designed to provide a more natural and intuitive way of interacting with technology through voice communication.<p>
+
+<p>The assistant is built using technologies such as Natural Language Processing (NLP) and Machine Learning (ML), which allow it to interpret user speech, understand intent, and generate appropriate responses. It processes voice input by converting speech into text, analyzing the meaning of the request, and then delivering a result either as text or synthesized speech.<p>
+
+<p>In addition to answering questions and providing information, the assistant is capable of controlling system functions and interacting with the device. It can execute commands such as opening applications, managing basic settings, and performing automated actions based on user input. This enables hands-free control and improves efficiency in everyday use.<p>
+
+<p>The system also includes a dedicated chat interface, allowing users to interact with the assistant through text. This provides an alternative communication method in situations where voice input is not convenient or possible, while maintaining the same level of functionality and responsiveness.<p>
+
+<p>The assistant is focused on delivering fast and accurate responses while maintaining a simple and accessible user experience. It operates in real time, minimizing delays between user input and system response.<p>
+
+<p>A key objective of the project is to reduce reliance on traditional interfaces like keyboards and touch controls. By enabling interaction through natural language, the assistant makes technology more accessible and flexible.<p>
+
+<p>The project also takes into account current limitations of voice technologies, including possible recognition errors, dependency on microphone quality, and challenges in handling complex or ambiguous requests. Continuous improvements are aimed at enhancing accuracy, expanding functionality, and optimizing performance.<p>
+
+<p>Overall, the goal of this project is to create a reliable, efficient, and scalable voice assistant that can assist with everyday tasks, control device functions, and provide both voice and text-based interaction.<p>
+     </div>
+</div>
+<div class="section" id="download">
+    <div class="card">
+        <h2>DOWNLOAD</h2>
+
+        <a href="https://www.dropbox.com/scl/fi/3pj7w4hwg1v2gpeyqjvpb/Jarvis.zip?rlkey=82102dc9cdou38lp2dn4zjycy&st=nvsp7pi6&dl=1" target="_blank">
+            <button>Download for Windows</button>
+        </a>
+
+        <a href="jarvis.apk" download>
+            <button>Download for Android</button>
+        </a>
+
+        <div class="install-guide">
+            <h3>Installation Guide</h3>
+            <p>1. Download the ZIP file from the website.</p>
+            <p>2. Extract the downloaded archive.</p>
+            <p>3. Inside the extracted folder, you will find another ZIP file — extract it as well.</p>
+            <p>4. Open the final folder.</p>
+            <p>5. Run the application file (.exe) to start the program.</p>
+        </div>
+
+    </div>
+</div>
+    
+<div class="section" id="donate">
+    <div class="card">
+        <h2>DONATE / PLANS</h2>
+        <div class="plans">
+            <div class="plan active">
+                <h3>BASIC</h3>
+                <p class="price">FREE</p>
+                <p>The free version</p>
+                <button>Activated</button>
+            </div>
+
+            <div class="plan">
+                <h3>PLUS</h3>
+                <p class="price">$5 / month</p>
+                <p>More features unlocked</p>
+                <button>Buy</button>
+            </div>
+
+            <div class="plan pro">
+                <h3>PRO</h3>
+                <p class="price">$10 / month</p>
+                <p>Full system access</p>
+                <button>Buy</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section" id="privacy">
+    <div class="card">
+        <h2>PRIVACY POLICY</h2>
+        <p>This Privacy Policy explains how this voice assistant application collects, uses, and protects user information.</p>
+
+<h2>1. Information We Collect</h2>
+
+<p>The application may process the following types of data:</p>
+<p>Voice input provided by the user to recognize commands and requests</p>
+<p>Text messages entered through the chat interface</p>
+<p>Basic technical data such as device type, operating system, and usage logs</p>
+<p>Voice data is used only during active interaction with the assistant.</p>
+
+<h2>2. How We Use Information</h2>
+
+<p>The collected information is used solely to:</p>
+<p>understand and process user commands</p>
+<p>generate responses from the assistant</p>
+<p>improve system performance and speech recognition accuracy</p>
+<p>ensure stable and correct operation of features (voice and chat)</p>
+
+<p>We do not use collected data for advertising or unrelated purposes.</p>
+
+<h2>3. Data Storage</h2>
+
+<p>User data is not permanently stored by default. Voice and text inputs are processed in real time and removed after the response is generated, unless the system explicitly requires temporary caching for functionality.</p>
+
+<h2>4. Data Sharing</h2>
+
+<p>We do not sell or share personal data with third parties.</p>
+<p>Some processing may rely on external services (for example, speech recognition or text processing APIs), but only to provide core functionality of the assistant.</p>
+
+<h2>5. Security</h2>
+
+<p>We apply reasonable technical measures to protect data from unauthorized access, alteration, or misuse. However, no digital system can guarantee 100% security.</p>
+
+<h2>6. User Choices</h2>
+
+<p>Users may choose:</p>
+
+<p>to use voice input or only chat mode</p>
+<p>>to stop using the application at any time</p>
+<h2>7. Changes to This Policy</h2>
+
+<p>This Privacy Policy may be updated if the application is changed or improved. Any updates will be reflected within the application.</p>
+
+<h2>8. Contact</h2>
+
+<p>If you have questions about this Privacy Policy, you can use the support section of the application.</p>
+    </div>
+</div>
+
+<div class="section" id="contact">
+    <div class="card">
+        <h2>CONTACT</h2>
+        <p><a class="contact-link" href="https://mail.google.com/mail/?view=cm&fs=1&to=supportsparkyai@gmail.com" target="_blank" rel="noopener noreferrer">supportsparkyai@gmail.com</a></p>
+    </div>
+</div>
+
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close login dialog" onclick="closeLogin()">&times;</button>
+        <h3>LOGIN</h3>
+        <input type="text" id="loginName" placeholder="Login">
+        <input type="password" id="loginPassword" placeholder="Password">
+        <button id="loginSubmit">Enter</button>
+        <div class="auth-divider">or</div>
+        <button id="googleLoginSubmit" class="google-button" type="button"><span class="google-mark">G</span>Continue with Google</button>
+        <p class="auth-switch">Don't have an account? <a href="#" id="openRegisterLink">Register</a></p>
+    </div>
+</div>
+
+<div class="modal" id="registerModal">
+    <div class="modal-content">
+        <button class="modal-close" type="button" aria-label="Close register dialog" onclick="closeRegister()">&times;</button>
+        <h3>REGISTER</h3>
+        <input type="text" id="registerName" placeholder="Choose login">
+        <input type="password" id="registerPassword" placeholder="Choose password">
+        <button id="registerSubmit">Create account</button>
+        <div class="auth-divider">or</div>
+        <button id="googleRegisterSubmit" class="google-button" type="button"><span class="google-mark">G</span>Sign up with Google</button>
+        <p class="auth-switch">Already have an account? <a href="#" id="backToLoginLink">Login</a></p>
+    </div>
+</div>
+
+<!-- KEY MODAL -->
+<div class="key-modal" id="keyModal">
+    <div class="key-box">
+        <h3>Your Key</h3>
+        <p id="keyText"></p>
+        <button onclick="closeKey()">Close</button>
+    </div>
+</div>
+
+<div class="toast" id="authToast"></div>
+
+<div class="admin-panel" id="adminPanel">
+    <div class="admin-card">
+        <button class="modal-close" type="button" aria-label="Close admin panel" id="closeAdminPanel">&times;</button>
+        <h3 class="admin-title">Admin Panel</h3>
+        <div id="adminUsersList"></div>
+    </div>
+</div>
+
+<script type="module">
+import { getApp, getApps, initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+import {
+    createUserWithEmailAndPassword,
+    GoogleAuthProvider,
+    getAuth,
+    onAuthStateChanged,
+    signOut,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+import {
+    collection,
+    doc,
+    getDoc,
+    getDocs,
+    getFirestore,
+    serverTimestamp,
+    setDoc,
+    updateDoc,
+} from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+const ACCOUNTS_KEY = "sparky_accounts_v1";
+const CURRENT_USER_KEY = "sparky_current_user_v1";
+const EMAIL_DOMAIN = "sparky.local";
+const PROFILE_COLLECTION = "profiles";
+const ADMIN_EMAILS = ["supportsparkyai@gmail.com"];
+const ADMIN_LOGINS = ["admin"];
+
+// Replace these placeholders with the web app config from your Firebase project.
+const firebaseConfig = {
+  apiKey: "AIzaSyALt3GKYsYxuTjZIZcaKdm2cp_yiuuqDB0",
+  authDomain: "sparky-fb647.firebaseapp.com",
+  projectId: "sparky-fb647",
+  storageBucket: "sparky-fb647.firebasestorage.app",
+  messagingSenderId: "515745639188",
+  appId: "1:515745639188:web:df0c99a332509d123d3001",
+  measurementId: "G-VK40CS9KRS"
+};
+
+function hasRealFirebaseConfig(config) {
+    return Boolean(
+        config.apiKey &&
+        config.authDomain &&
+        config.projectId &&
+        config.appId &&
+        !String(config.apiKey).includes("PASTE_")
+    );
+}
+
+const FIREBASE_ENABLED = hasRealFirebaseConfig(firebaseConfig);
+const firebaseApp = FIREBASE_ENABLED ? (getApps().length ? getApp() : initializeApp(firebaseConfig)) : null;
+const auth = FIREBASE_ENABLED ? getAuth(firebaseApp) : null;
+const db = FIREBASE_ENABLED ? getFirestore(firebaseApp) : null;
+const googleProvider = FIREBASE_ENABLED ? new GoogleAuthProvider() : null;
+
+function readJson(key, fallback) {
+    try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+    } catch {
+        return fallback;
+    }
+}
+
+function writeJson(key, value) {
+    localStorage.setItem(key, JSON.stringify(value));
+}
+
+function normalizeLogin(login) {
+    return String(login || "").trim().toLowerCase();
+}
+
+function loginToEmail(login) {
+    return `${normalizeLogin(login)}@${EMAIL_DOMAIN}`;
+}
+
+function emailToLogin(email) {
+    return String(email || "").split("@")[0].trim().toLowerCase();
+}
+
+function generateKey() {
+    return `SP-${Math.random().toString(36).slice(2, 8).toUpperCase()}-${Math.random().toString(36).slice(2, 8).toUpperCase()}`;
+}
+
+function buildProfileFromAuthUser(user, fallback = {}) {
+    const login = fallback.login || emailToLogin(user?.email);
+
+    return {
+        uid: user?.uid || fallback.uid || "",
+        login,
+        username: user?.displayName || fallback.username || login,
+        email: user?.email || fallback.email || "",
+        plan: fallback.plan || "basic",
+        key: fallback.key || generateKey(),
+    };
+}
+
+function loadAccounts() {
+    return readJson(ACCOUNTS_KEY, []);
+}
+
+function saveAccounts(accounts) {
+    writeJson(ACCOUNTS_KEY, accounts);
+}
+
+function getLocalCurrentProfile() {
+    return Promise.resolve(readJson(CURRENT_USER_KEY, null));
+}
+
+function setLocalCurrentProfile(profile) {
+    writeJson(CURRENT_USER_KEY, profile);
+}
+
+function seedDefaultAccounts() {
+    const accounts = loadAccounts();
+    if (accounts.length > 0) return;
+
+    const defaults = [
+        { login: "guest", username: "guest", password: "0000", plan: "basic", key: "SPARK-FREE-NOW" },
+        { login: "user", username: "user", password: "1111", plan: "plus", key: "SPARK-PLUS--ONE" },
+        { login: "admin", username: "admin", password: "1234", plan: "pro", key: "SPARK-PRO-FULL" },
+    ];
+
+    saveAccounts(defaults);
+}
+
+async function registerLocalAccount(login, password) {
+    const normalized = normalizeLogin(login);
+
+    if (!normalized || !password) {
+        throw new Error("Enter login and password");
+    }
+
+    const accounts = loadAccounts();
+    if (accounts.some(account => account.login === normalized)) {
+        throw new Error("This login already exists");
+    }
+
+    const profile = {
+        login: normalized,
+        username: normalized,
+        password: String(password),
+        plan: "basic",
+        key: generateKey(),
+    };
+
+    accounts.push(profile);
+    saveAccounts(accounts);
+    setLocalCurrentProfile(profile);
+    return { profile };
+}
+
+async function authenticateLocal(login, password) {
+    const normalized = normalizeLogin(login);
+    const accounts = loadAccounts();
+    const profile = accounts.find(account => account.login === normalized);
+
+    if (!profile || profile.password !== String(password)) {
+        throw new Error("Wrong login or password");
+    }
+
+    setLocalCurrentProfile(profile);
+    return { profile };
+}
+
+async function loadRemoteProfile(user) {
+    const profileRef = doc(db, PROFILE_COLLECTION, user.uid);
+    const snapshot = await getDoc(profileRef);
+    const baseProfile = buildProfileFromAuthUser(user);
+
+    if (!snapshot.exists()) {
+        await setDoc(profileRef, {
+            ...baseProfile,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+        });
+        return baseProfile;
+    }
+
+    const data = snapshot.data() || {};
+    return buildProfileFromAuthUser(user, data);
+}
+
+async function registerRemoteAccount(login, password) {
+    const normalized = normalizeLogin(login);
+
+    if (!normalized || !password) {
+        throw new Error("Enter login and password");
+    }
+
+    try {
+        const credential = await createUserWithEmailAndPassword(auth, loginToEmail(normalized), String(password));
+        const profile = {
+            uid: credential.user.uid,
+            login: normalized,
+            username: normalized,
+            email: credential.user.email || loginToEmail(normalized),
+            plan: "basic",
+            key: generateKey(),
+        };
+
+        await setDoc(doc(db, PROFILE_COLLECTION, credential.user.uid), {
+            ...profile,
+            createdAt: serverTimestamp(),
+            updatedAt: serverTimestamp(),
+        });
+
+        return { profile };
+    } catch (error) {
+        console.warn("Firebase Auth register failed:", error);
+        throw error;
+    }
+}
+
+async function authenticateRemote(login, password) {
+    const normalized = normalizeLogin(login);
+
+    try {
+        const credential = await signInWithEmailAndPassword(auth, loginToEmail(normalized), String(password));
+        const profile = buildProfileFromAuthUser(credential.user, {
+            login: normalized,
+            username: normalized,
+        });
+        return { profile };
+    } catch (error) {
+        console.warn("Firebase Auth login failed:", error);
+        throw error;
+    }
+}
+
+async function authenticateWithGoogle() {
+    if (!FIREBASE_ENABLED || !auth || !googleProvider) {
+        throw new Error("Google sign-in is not available");
+    }
+
+    const result = await signInWithPopup(auth, googleProvider);
+    let profile = buildProfileFromAuthUser(result.user);
+
+    try {
+        profile = await loadRemoteProfile(result.user);
+    } catch (error) {
+        console.warn("Google profile sync fallback:", error);
+    }
+
+    return { profile };
+}
+
+const ACCOUNT_STORE = FIREBASE_ENABLED
+    ? {
+        normalizeLogin,
+        registerAccount: registerRemoteAccount,
+        authenticate: authenticateRemote,
+        authenticateWithGoogle,
+        getCurrentProfile: async () => {
+            if (!auth) return null;
+            try {
+                if (!auth.currentUser) return null;
+                return await loadRemoteProfile(auth.currentUser);
+            } catch {
+                return null;
+            }
+        },
+    }
+    : {
+        normalizeLogin,
+        registerAccount: registerLocalAccount,
+        authenticate: authenticateLocal,
+        authenticateWithGoogle: async () => {
+            throw new Error("Google sign-in is available only with Firebase");
+        },
+        getCurrentProfile: getLocalCurrentProfile,
+    };
+
+window.SparkyAccounts = ACCOUNT_STORE;
+
+let CURRENT_USER = null;
+let AUTH_READY_RESOLVE = null;
+const AUTH_READY = FIREBASE_ENABLED
+    ? new Promise(resolve => {
+        AUTH_READY_RESOLVE = resolve;
+    })
+    : Promise.resolve();
+
+const accountButton = document.getElementById("accountButton");
+const accountMenu = document.getElementById("accountMenu");
+const accountMenuName = document.getElementById("accountMenuName");
+const accountMenuPlan = document.getElementById("accountMenuPlan");
+const adminPanelOpenButton = document.getElementById("adminPanelOpen");
+const logoutButton = document.getElementById("logoutButton");
+const adminPanel = document.getElementById("adminPanel");
+const closeAdminPanelButton = document.getElementById("closeAdminPanel");
+const adminUsersList = document.getElementById("adminUsersList");
+const authToast = document.getElementById("authToast");
+let authToastTimer = null;
+
+function isAdminProfile(profile) {
+    if (!profile) return false;
+
+    return (
+        profile.email === "thomaszakharchenko18@gmail.com" ||
+        profile.login === "admin" ||
+        profile.plan === "pro"
+    );
+}
+
+function updateAccountButton(profile) {
+    if (!accountButton) return;
+
+    if (!profile) {
+        accountButton.classList.remove("logged-in");
+        accountButton.innerHTML = "LOGIN";
+        if (accountMenu) accountMenu.classList.remove("open");
+        return;
+    }
+
+    accountButton.classList.add("logged-in");
+    accountButton.innerHTML = `<span class="login-primary">${profile.username || profile.login}</span><span class="login-secondary">${profile.plan || "basic"} plan</span>`;
+
+    if (accountMenuName) accountMenuName.textContent = profile.username || profile.login;
+    if (accountMenuPlan) accountMenuPlan.textContent = `${profile.plan || "basic"} plan`;
+    if (adminPanelOpenButton) {
+        adminPanelOpenButton.style.display = isAdminProfile(profile) ? "block" : "none";
+    }
+}
+
+function showAuthNotice(message) {
+    if (!authToast) {
+        window.alert(message);
+        return;
+    }
+
+    authToast.textContent = message;
+    authToast.classList.remove("error");
+    if (/error|wrong|failed|exists|offline|denied/i.test(message)) {
+        authToast.classList.add("error");
+    }
+
+    authToast.classList.add("show");
+    console.log("AUTH NOTICE:", message);
+    window.clearTimeout(authToastTimer);
+    authToastTimer = window.setTimeout(() => {
+        authToast.classList.remove("show");
+    }, 3200);
+}
+
+function setCurrentUser(profile) {
+    CURRENT_USER = profile;
+    updateAccountButton(profile);
+    applyPlan(profile?.plan || "basic");
+}
+
+function clearCurrentUser() {
+    CURRENT_USER = null;
+    updateAccountButton(null);
+    applyPlan("basic");
+}
+
+if (FIREBASE_ENABLED) {
+    onAuthStateChanged(auth, async (user) => {
+        try {
+            if (user) {
+                const profile = await loadRemoteProfile(user);
+                setCurrentUser(profile);
+            } else {
+                clearCurrentUser();
+            }
+        } catch (error) {
+            console.error("Firebase profile sync failed:", error);
+            clearCurrentUser();
+        } finally {
+            if (AUTH_READY_RESOLVE) {
+                AUTH_READY_RESOLVE();
+                AUTH_READY_RESOLVE = null;
+            }
+        }
+    });
+} else {
+    seedDefaultAccounts();
+}
+
+function openLogin(){
+    document.getElementById('loginModal').style.display = 'flex';
+}
+function closeLogin(){
+    document.getElementById('loginModal').style.display = 'none';
+}
+
+function openRegister(){
+    document.getElementById('registerModal').style.display = 'flex';
+}
+function closeRegister(){
+    document.getElementById('registerModal').style.display = 'none';
+}
+
+function openKey(key){
+    document.getElementById("keyText").textContent = key;
+    document.getElementById("keyModal").style.display = "flex";
+}
+
+function closeKey(){
+    document.getElementById("keyModal").style.display = "none";
+}
+
+window.openLogin = openLogin;
+window.closeLogin = closeLogin;
+window.openRegister = openRegister;
+window.closeRegister = closeRegister;
+window.openKey = openKey;
+window.closeKey = closeKey;
+
+/* SCROLL ANIMATION */
+const sections = document.querySelectorAll('.section');
+window.addEventListener('scroll', () => {
+    sections.forEach(sec => {
+        const top = sec.getBoundingClientRect().top;
+        if(top < window.innerHeight - 100){
+            sec.classList.add('active');
+        }
+    });
+});
+
+/* NAV ACTIVE STATE */
+const links = document.querySelectorAll("nav a");
+const header = document.querySelector("header");
+const menuToggle = document.querySelector(".menu-toggle");
+
+links.forEach(link => {
+    link.addEventListener("click", () => {
+        links.forEach(l => l.classList.remove("active"));
+        link.classList.add("active");
+        header.classList.remove("menu-open");
+        if (menuToggle) menuToggle.setAttribute("aria-expanded", "false");
+    });
+});
+
+if (menuToggle) {
+    menuToggle.addEventListener("click", () => {
+        const isOpen = header.classList.toggle("menu-open");
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+    });
+}
+
+window.addEventListener("load", () => {
+    const currentLink = [...links].find(link => link.getAttribute("href") === window.location.hash) || links[0];
+
+    if (!currentLink) return;
+
+    links.forEach(link => link.classList.remove("active"));
+    currentLink.classList.add("active");
+});
+
+async function refreshCurrentProfile() {
+    const profile = await ACCOUNT_STORE.getCurrentProfile();
+
+    if (!profile) return;
+
+    setCurrentUser(profile);
+}
+
+document.getElementById("loginSubmit").addEventListener("click", async () => {
+    const login = ACCOUNT_STORE.normalizeLogin(document.getElementById("loginName").value);
+    const password = document.getElementById("loginPassword").value;
+
+    try {
+        const result = await ACCOUNT_STORE.authenticate(login, password);
+        setCurrentUser(result.profile);
+        closeLogin();
+        showAuthNotice(`Welcome, ${result.profile.username}`);
+    } catch (error) {
+        showAuthNotice(error?.message || "Wrong login or password");
+    }
+});
+
+async function handleGoogleAuth() {
+    try {
+        const result = await ACCOUNT_STORE.authenticateWithGoogle();
+        setCurrentUser(result.profile);
+        closeLogin();
+        closeRegister();
+        showAuthNotice(`Welcome, ${result.profile.username}`);
+    } catch (error) {
+        showAuthNotice(error?.message || "Google sign-in failed");
+    }
+}
+
+document.getElementById("googleLoginSubmit").addEventListener("click", handleGoogleAuth);
+document.getElementById("googleRegisterSubmit").addEventListener("click", handleGoogleAuth);
+
+document.getElementById("openRegisterLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    closeLogin();
+    openRegister();
+});
+
+document.getElementById("backToLoginLink").addEventListener("click", (e) => {
+    e.preventDefault();
+    closeRegister();
+    openLogin();
+});
+
+document.getElementById("registerSubmit").addEventListener("click", async () => {
+    const login = ACCOUNT_STORE.normalizeLogin(document.getElementById("registerName").value);
+    const password = document.getElementById("registerPassword").value;
+
+    if (!login || !password) {
+        alert("Enter login and password");
+        return;
+    }
+
+    try {
+        const result = await ACCOUNT_STORE.registerAccount(login, password);
+        setCurrentUser(result.profile);
+        closeRegister();
+        showAuthNotice(`Account created. Plan: ${result.profile.plan}`);
+    } catch (error) {
+        showAuthNotice(error?.message || "This login already exists");
+    }
+});
+
+async function logoutCurrentUser() {
+    try {
+        if (FIREBASE_ENABLED && auth) {
+            await signOut(auth);
+        } else {
+            localStorage.removeItem(CURRENT_USER_KEY);
+        }
+
+        clearCurrentUser();
+        closeLogin();
+        closeRegister();
+        if (accountMenu) accountMenu.classList.remove("open");
+        showAuthNotice("You have been logged out");
+    } catch (error) {
+        showAuthNotice(error?.message || "Logout failed");
+    }
+}
+
+async function updateUserPlan(uid, plan) {
+    if (!FIREBASE_ENABLED || !db) {
+        throw new Error("Admin panel requires Firebase");
+    }
+
+    await updateDoc(doc(db, PROFILE_COLLECTION, uid), {
+        plan,
+        updatedAt: serverTimestamp(),
+    });
+
+    if (CURRENT_USER?.uid === uid) {
+        const updatedProfile = { ...CURRENT_USER, plan };
+        setCurrentUser(updatedProfile);
+    }
+}
+
+async function loadAdminUsers() {
+    if (!adminUsersList) return;
+
+    adminUsersList.innerHTML = "<p>Loading users...</p>";
+
+    if (!FIREBASE_ENABLED || !db) {
+        adminUsersList.innerHTML = "<p>Firebase is required for the admin panel.</p>";
+        return;
+    }
+
+    const snapshot = await getDocs(collection(db, PROFILE_COLLECTION));
+
+    if (snapshot.empty) {
+        adminUsersList.innerHTML = "<p>No users found.</p>";
+        return;
+    }
+
+    const rows = snapshot.docs.map(entry => {
+        const data = entry.data() || {};
+        const username = data.username || data.login || data.email || "unknown";
+        const subtitle = data.email || data.login || entry.id;
+        const plan = data.plan || "basic";
+
+        return `
+            <div class="admin-user">
+                <div>
+                    <div class="admin-user-name">${username}</div>
+                    <div class="admin-user-subtitle">${subtitle}</div>
+                </div>
+                <select class="admin-select" data-user-id="${entry.id}">
+                    <option value="basic" ${plan === "basic" ? "selected" : ""}>basic</option>
+                    <option value="plus" ${plan === "plus" ? "selected" : ""}>plus</option>
+                    <option value="pro" ${plan === "pro" ? "selected" : ""}>pro</option>
+                </select>
+                <button class="account-action" data-save-user="${entry.id}">Save</button>
+            </div>
+        `;
+    });
+
+    adminUsersList.innerHTML = rows.join("");
+
+    adminUsersList.querySelectorAll("[data-save-user]").forEach(button => {
+        button.addEventListener("click", async () => {
+            const uid = button.getAttribute("data-save-user");
+            const select = adminUsersList.querySelector(`[data-user-id="${uid}"]`);
+            const nextPlan = select?.value || "basic";
+
+            try {
+                await updateUserPlan(uid, nextPlan);
+                showAuthNotice(`Plan updated to ${nextPlan}`);
+            } catch (error) {
+                showAuthNotice(error?.message || "Failed to update plan");
+            }
+        });
+    });
+}
+
+function openAdminPanel() {
+    if (!isAdminProfile(CURRENT_USER)) {
+        showAuthNotice("Admin access only");
+        return;
+    }
+
+    if (accountMenu) accountMenu.classList.remove("open");
+    adminPanel?.classList.add("open");
+    loadAdminUsers().catch(error => {
+        showAuthNotice(error?.message || "Failed to load users");
+    });
+}
+
+function closeAdminPanel() {
+    adminPanel?.classList.remove("open");
+}
+
+accountButton?.addEventListener("click", () => {
+    if (!CURRENT_USER) {
+        openLogin();
+        return;
+    }
+
+    accountMenu?.classList.toggle("open");
+});
+
+logoutButton?.addEventListener("click", logoutCurrentUser);
+adminPanelOpenButton?.addEventListener("click", openAdminPanel);
+closeAdminPanelButton?.addEventListener("click", closeAdminPanel);
+
+document.addEventListener("click", (event) => {
+    if (accountMenu && accountButton && !accountMenu.contains(event.target) && !accountButton.contains(event.target)) {
+        accountMenu.classList.remove("open");
+    }
+
+    if (adminPanel?.classList.contains("open") && event.target === adminPanel) {
+        closeAdminPanel();
+    }
+});
+
+window.addEventListener("DOMContentLoaded", () => {
+    refreshCurrentProfile();
+});
+
+function applyPlan(plan) {
+
+    const plans = document.querySelectorAll(".plan");
+
+    plans.forEach(p => {
+        p.classList.remove("active");
+
+        const btn = p.querySelector("button");
+        if (btn) {
+            btn.disabled = false;
+            btn.textContent = "Buy";
+            btn.onclick = null; // reset click
+        }
+    });
+
+    let target = null;
+
+    if (plan === "basic") target = plans[0];
+    if (plan === "plus") target = plans[1];
+    if (plan === "pro") target = plans[2];
+
+    if (!target) return;
+
+    target.classList.add("active");
+
+    const btn = target.querySelector("button");
+
+    if (btn) {
+        btn.disabled = false;
+        btn.textContent = "Activated";
+
+        btn.onclick = () => {
+            if (CURRENT_USER && CURRENT_USER.key) {
+                openKey(CURRENT_USER.key);
+            } else {
+                alert("No key found");
+            }
+        };
+    }
+}
+</script>
+</body>
+</html>
